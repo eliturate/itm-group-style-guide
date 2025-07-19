@@ -1,0 +1,23 @@
+{
+  "name": "itm-group-style-guide",
+  "version": "1.0.0",
+  "description": "ITM Group Brand Style Guide - Interactive SPA",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "serve": "python -m http.server 8080",
+    "serve-php": "php -S localhost:8080"
+  },
+  "keywords": [
+    "style-guide",
+    "brand",
+    "design-system",
+    "itm-group",
+    "ui",
+    "ux"
+  ],
+  "author": "ITM Group",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://github.com/[your-username]/itm-group-style-guide"
+}

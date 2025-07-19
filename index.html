@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITM Group - Brand Style Guide</title>
+    <meta name="description" content="Official brand style guide for ITM Group including colors, typography, components, and digital assets">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/style-guide.css">
+    <link rel="stylesheet" href="src/css/animations.css">
+</head>
+<body>
+    <div id="app" class="style-guide-app">
+        <!-- Navigation -->
+        <nav class="style-guide-nav">
+            <div class="nav-header">
+                <img src="src/assets/images/logos/itm-horizontal-dark.png" alt="ITM Group" class="nav-logo">
+                <h1>Brand Style Guide</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#colors" class="nav-link active">Colors</a></li>
+                <li><a href="#typography" class="nav-link">Typography</a></li>
+                <li><a href="#buttons" class="nav-link">Buttons</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+                <li><a href="#patterns" class="nav-link">Patterns</a></li>
+                <li><a href="#icons" class="nav-link">Icons</a></li>
+                <li><a href="#logos" class="nav-link">Logos</a></li>
+                <li><a href="#digital-assets" class="nav-link">Digital Assets</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="style-guide-content">
+            <div class="style-guide-container">
+                <!-- Colors Section -->
+                <section id="colors" class="style-guide-section active">
+                    <h2 class="section-title">Brand Colors</h2>
+                    
+                    <!-- Primary Colors -->
+                    <div class="color-group">
+                        <h3>Primary Colors</h3>
+                        <div class="color-grid">
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #F27252;"></div>
+                                <div class="color-info">
+                                    <h4>Coral</h4>
+                                    <code>#F27252</code>
+                                </div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #621039;"></div>
+                                <div class="color-info">
+                                    <h4>Deep Purple</h4>
+                                    <code>#621039</code>
+                                </div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #2CBBAF;"></div>
+                                <div class="color-info">
+                                    <h4>Teal</h4>
+                                    <code>#2CBBAF</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neutral Colors -->
+                    <div class="color-group">
+                        <h3>Neutral Colors</h3>
+                        <div class="color-grid">
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #0a0a0a;"></div>
+                                <div class="color-info">
+                                    <h4>Dark</h4>
+                                    <code>#0a0a0a</code>
+                                </div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #EEEEE7;"></div>
+                                <div class="color-info">
+                                    <h4>Light</h4>
+                                    <code>#EEEEE7</code>
+                                </div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #ffffff;"></div>
+                                <div class="color-info">
+                                    <h4>White</h4>
+                                    <code>#FFFFFF</code>
+                                </div>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-swatch" style="background: #1a1a1a;"></div>
+                                <div class="color-info">
+                                    <h4>Footer</h4>
+                                    <code>#1a1a1a</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gradients -->
+                    <div class="color-group">
+                        <h3>Approved Gradients</h3>
+                        <div class="gradient-grid">
+                            <div class="gradient-item">
+                                <div class="gradient-swatch gradient-orange-card"></div>
+                                <div class="gradient-info">
+                                    <h4>Orange Card</h4>
+                                    <code>135deg, #FF8C6B → #F27252</code>
+                                </div>
+                            </div>
+                            <div class="gradient-item">
+                                <div class="gradient-swatch gradient-purple-card"></div>
+                                <div class="gradient-info">
+                                    <h4>Purple Card</h4>
+                                    <code>135deg, #B44074 → #621039</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Section -->
+                <section id="typography" class="style-guide-section">
+                    <h2 class="section-title">Typography</h2>
+                    
+                    <div class="typography-group">
+                        <h3>Type Scale</h3>
+                        <div class="type-specimens">
+                            <div class="type-specimen">
+                                <h1 class="demo-h1">Heading 1</h1>
+                                <code>font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;</code>
+                            </div>
+                            <div class="type-specimen">
+                                <h2 class="demo-h2">Heading 2</h2>
+                                <code>font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 600;</code>
+                            </div>
+                            <div class="type-specimen">
+                                <h3 class="demo-h3">Heading 3</h3>
+                                <code>font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 600;</code>
+                            </div>
+                            <div class="type-specimen">
+                                <p class="demo-body">Body text - The quick brown fox jumps over the lazy dog</p>
+                                <code>font-size: 1rem; line-height: 1.6;</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dark Background Typography -->
+                    <div class="typography-group dark-bg">
+                        <h3>Dark Background Typography</h3>
+                        <div class="type-specimens">
+                            <h2 class="demo-h2 text-white">White Heading</h2>
+                            <h2 class="demo-h2 text-orange">Orange Heading</h2>
+                            <p class="demo-body text-white">White body text for dark backgrounds</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Buttons Section -->
+                <section id="buttons" class="style-guide-section">
+                    <h2 class="section-title">Buttons</h2>
+                    
+                    <div class="button-group">
+                        <h3>Primary Buttons</h3>
+                        <div class="button-row">
+                            <button class="btn btn-primary">Primary Button</button>
+                            <button class="btn btn-primary btn-large">Large Primary</button>
+                            <button class="btn btn-hero-primary">Hero Primary</button>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <h3>Secondary Buttons</h3>
+                        <div class="button-row">
+                            <button class="btn btn-secondary">Secondary Button</button>
+                            <button class="btn btn-secondary btn-large">Large Secondary</button>
+                            <button class="btn btn-outline">Outline Button</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Components Section -->
+                <section id="components" class="style-guide-section">
+                    <h2 class="section-title">Visual Components</h2>
+                    
+                    <!-- Section Underlines -->
+                    <div class="component-group">
+                        <h3>Section Underlines</h3>
+                        <div class="underline-demos">
+                            <div class="underline-demo">
+                                <h4>Standard</h4>
+                                <div class="underline-standard"></div>
+                            </div>
+                            <div class="underline-demo">
+                                <h4>Bracket Accent</h4>
+                                <div class="bracket-example">
+                                    <div class="bracket-accent">
+                                        <svg width="30" height="50" viewBox="0 0 30 50" fill="none">
+                                            <path d="M2 48L2 15L28 15" stroke="#F27252" stroke-width="4" stroke-linecap="square"/>
+                                        </svg>
+                                    </div>
+                                    <h2>Partners in Success</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="component-group">
+                        <h3>Badges</h3>
+                        <div class="badge-row">
+                            <span class="badge badge-primary">NEW</span>
+                            <span class="badge badge-secondary">FEATURED</span>
+                            <span class="badge badge-accent">HOT</span>
+                            <span class="badge badge-outline">COMING SOON</span>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicators -->
+                    <div class="component-group">
+                        <h3>Progress Indicators</h3>
+                        <div class="progress-demos">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <div class="progress-circle">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <circle cx="40" cy="40" r="35" stroke="#e0e0e0" stroke-width="6" fill="none"/>
+                                    <circle cx="40" cy="40" r="35" stroke="url(#progress-gradient)" stroke-width="6" fill="none" 
+                                        stroke-dasharray="220" stroke-dashoffset="55" stroke-linecap="round" 
+                                        transform="rotate(-90 40 40)"/>
+                                    <defs>
+                                        <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#F27252"/>
+                                            <stop offset="100%" stop-color="#621039"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <span class="progress-text">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Patterns Section -->
+                <section id="patterns" class="style-guide-section">
+                    <h2 class="section-title">Patterns & Backgrounds</h2>
+                    
+                    <div class="pattern-grid">
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-hexagon"></div>
+                            <h4>Hexagon</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-circuit"></div>
+                            <h4>Circuit</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-mesh"></div>
+                            <h4>Mesh</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-waves"></div>
+                            <h4>Waves</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-dots"></div>
+                            <h4>Dots</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-moving-circles" id="movingCircles"></div>
+                            <h4>Moving Circles</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-particles" id="particlesContainer"></div>
+                            <h4>Interactive Particles</h4>
+                        </div>
+                        <div class="pattern-item">
+                            <div class="pattern-preview pattern-flow-field" id="flowField"></div>
+                            <h4>Flow Field</h4>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Icons Section -->
+                <section id="icons" class="style-guide-section">
+                    <h2 class="section-title">Icons</h2>
+                    
+                    <!-- Brand Icons will be added here -->
+                    <div class="icon-grid" id="iconGrid">
+                        <!-- Icons will be dynamically loaded -->
+                    </div>
+                </section>
+
+                <!-- Logos Section -->
+                <section id="logos" class="style-guide-section">
+                    <h2 class="section-title">ITM Group Logos</h2>
+                    
+                    <div class="logo-group">
+                        <h3>Basic Variants</h3>
+                        <div class="logo-grid">
+                            <div class="logo-item">
+                                <div class="logo-preview logo-light">
+                                    <img src="src/assets/images/logos/itm-dark.png" alt="ITM Dark">
+                                </div>
+                                <span>Dark</span>
+                            </div>
+                            <div class="logo-item">
+                                <div class="logo-preview logo-dark">
+                                    <img src="src/assets/images/logos/itm-white.png" alt="ITM White">
+                                </div>
+                                <span>White</span>
+                            </div>
+                            <div class="logo-item">
+                                <div class="logo-preview logo-light">
+                                    <img src="src/assets/images/logos/itm-orange.png" alt="ITM Orange">
+                                </div>
+                                <span>Orange</span>
+                            </div>
+                            <div class="logo-item">
+                                <div class="logo-preview logo-light">
+                                    <img src="src/assets/images/logos/itm-purple.png" alt="ITM Purple">
+                                </div>
+                                <span>Purple</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logo-group">
+                        <h3>Horizontal Variants</h3>
+                        <div class="logo-grid logo-grid-horizontal">
+                            <div class="logo-item">
+                                <div class="logo-preview logo-light">
+                                    <img src="src/assets/images/logos/itm-horizontal-default.png" alt="ITM Horizontal Default">
+                                </div>
+                                <span>Default</span>
+                            </div>
+                            <div class="logo-item">
+                                <div class="logo-preview logo-light">
+                                    <img src="src/assets/images/logos/itm-horizontal-dark.png" alt="ITM Horizontal Dark">
+                                </div>
+                                <span>Dark</span>
+                            </div>
+                            <div class="logo-item">
+                                <div class="logo-preview logo-dark">
+                                    <img src="src/assets/images/logos/itm-horizontal-white.png" alt="ITM Horizontal White">
+                                </div>
+                                <span>White</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Digital Assets Section -->
+                <section id="digital-assets" class="style-guide-section">
+                    <h2 class="section-title">Digital Assets</h2>
+                    
+                    <div class="asset-group">
+                        <h3>Social Media Templates</h3>
+                        <div class="template-grid">
+                            <div class="template-item">
+                                <div class="template-preview template-linkedin">
+                                    <h4>LinkedIn Post</h4>
+                                    <p>1200x627px</p>
+                                </div>
+                            </div>
+                            <div class="template-item">
+                                <div class="template-preview template-instagram">
+                                    <h4>Instagram Post</h4>
+                                    <p>1080x1080px</p>
+                                </div>
+                            </div>
+                            <div class="template-item">
+                                <div class="template-preview template-twitter">
+                                    <h4>Twitter/X Post</h4>
+                                    <p>1200x675px</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-group">
+                        <h3>Data Visualization Colors</h3>
+                        <div class="data-colors">
+                            <div class="data-color" style="background: linear-gradient(135deg, #F27252 0%, #FF8C6B 100%)"></div>
+                            <div class="data-color" style="background: linear-gradient(135deg, #621039 0%, #8B2654 100%)"></div>
+                            <div class="data-color" style="background: linear-gradient(135deg, #2CBBAF 0%, #5ED4C9 100%)"></div>
+                            <div class="data-color" style="background: linear-gradient(135deg, #FF8C6B 0%, #FFB199 100%)"></div>
+                            <div class="data-color" style="background: linear-gradient(135deg, #8B2654 0%, #B44074 100%)"></div>
+                            <div class="data-color" style="background: linear-gradient(135deg, #5ED4C9 0%, #8FE5DD 100%)"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/patterns.js"></script>
+    <script src="src/js/icons.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>
