@@ -581,6 +581,15 @@
     width: auto;
 }
 
+/* Vertical logos need more height */
+.logo-group-vertical .logo-preview {
+    min-height: 180px;
+}
+
+.logo-group-vertical .logo-preview img {
+    max-height: 120px;
+}
+
 .logo-item span {
     font-size: 0.875rem;
     color: #666;
