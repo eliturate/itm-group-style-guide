@@ -28,6 +28,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Update URL hash
                 window.location.hash = targetId;
+                
+                // Ensure only one active link
+                const activeLinks = document.querySelectorAll('.nav-link.active');
+                if (activeLinks.length > 1) {
+                    // Remove active class from all except the clicked one
+                    activeLinks.forEach(link => {
+                        if (link !== this) {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Debug: Log active states
+                if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+                    const finalActiveLinks = document.querySelectorAll('.nav-link.active');
+                    console.log(`Active navigation links: ${finalActiveLinks.length}`);
+                }
             } catch (error) {
                 console.error('Navigation error:', error);
             }

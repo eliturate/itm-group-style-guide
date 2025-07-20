@@ -16,6 +16,7 @@
     position: fixed;
     height: 100vh;
     overflow-y: auto;
+    z-index: 100;
 }
 
 .nav-header {
@@ -38,14 +39,26 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
+    display: block;
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
     font-weight: var(--font-medium);
     color: var(--color-dark);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-link:hover {
@@ -56,6 +69,25 @@
 .nav-link.active {
     background: var(--color-primary);
     color: var(--color-white);
+    z-index: 2;
+    box-shadow: var(--shadow-sm);
+    transform: translateZ(0);
+}
+
+/* Ensure no overlap between navigation items */
+.nav-menu li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.nav-menu li:not(:last-child) {
+    margin-bottom: var(--space-xs);
+}
+
+/* Ensure proper stacking context for navigation items */
+.nav-menu li {
+    isolation: isolate;
 }
 
 /* Main Content */
@@ -1129,6 +1161,7 @@
     .style-guide-nav {
         transform: translateX(-100%);
         transition: transform var(--transition-base);
+        width: 280px;
     }
     
     .style-guide-nav.open {
@@ -1150,5 +1183,18 @@
     .button-row {
         flex-direction: column;
         align-items: stretch;
+    }
+    
+    /* Ensure proper spacing in mobile navigation */
+    .nav-menu {
+        gap: var(--space-sm);
+    }
+    
+    .nav-menu li {
+        margin-bottom: var(--space-xs);
+    }
+    
+    .nav-link {
+        padding: var(--space-md);
     }
 }
