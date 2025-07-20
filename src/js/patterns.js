@@ -1,10 +1,12 @@
 // Pattern animations for ITM Style Guide
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Moving Circles Pattern
     function initMovingCircles() {
         const container = document.getElementById('movingCircles');
-        if (!container) {return;}
+        if (!container) {
+            return;
+        }
 
         const colors = ['#F27252', '#621039', '#2CBBAF'];
         const circles = [];
@@ -16,11 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const size = Math.random() * 30 + 20;
             circle.style.width = size + 'px';
             circle.style.height = size + 'px';
-            circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            circle.style.background =
+                colors[Math.floor(Math.random() * colors.length)];
             circle.style.left = Math.random() * 80 + 10 + '%';
             circle.style.top = Math.random() * 80 + 10 + '%';
             circle.style.animationDelay = Math.random() * 5 + 's';
-            circle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            circle.style.animationDuration = 15 + Math.random() * 10 + 's';
             container.appendChild(circle);
             circles.push(circle);
         }
@@ -29,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Interactive Particles Pattern
     function initInteractiveParticles() {
         const container = document.getElementById('particlesContainer');
-        if (!container) {return;}
+        if (!container) {
+            return;
+        }
 
         const particles = [];
         const lines = [];
@@ -73,8 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Keep within bounds
-                particle.x = Math.max(0, Math.min(container.offsetWidth, particle.x));
-                particle.y = Math.max(0, Math.min(container.offsetHeight, particle.y));
+                particle.x = Math.max(
+                    0,
+                    Math.min(container.offsetWidth, particle.x)
+                );
+                particle.y = Math.max(
+                    0,
+                    Math.min(container.offsetHeight, particle.y)
+                );
 
                 // Update element position
                 particle.element.style.left = particle.x + 'px';
@@ -97,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         line.style.left = particles[j].x + 'px';
                         line.style.top = particles[j].y + 'px';
                         line.style.transform = `rotate(${angle}rad)`;
-                        line.style.opacity = (1 - distance / connectionDistance) * 0.3;
+                        line.style.opacity =
+                            (1 - distance / connectionDistance) * 0.3;
 
                         container.appendChild(line);
                         lines.push(line);
@@ -111,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
 
         // Mouse interaction
-        container.addEventListener('mousemove', (e) => {
+        container.addEventListener('mousemove', e => {
             const rect = container.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
@@ -127,7 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     particle.vy += (dy / distance) * force * 0.05;
 
                     // Limit velocity
-                    const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
+                    const speed = Math.sqrt(
+                        particle.vx * particle.vx + particle.vy * particle.vy
+                    );
                     if (speed > 2) {
                         particle.vx = (particle.vx / speed) * 2;
                         particle.vy = (particle.vy / speed) * 2;
@@ -140,7 +154,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Flow Field Pattern
     function initFlowField() {
         const container = document.getElementById('flowField');
-        if (!container) {return;}
+        if (!container) {
+            return;
+        }
 
         const particleCount = 50;
         const particles = [];
@@ -195,7 +211,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Floating Particles Pattern
     function initFloatingParticles() {
         const container = document.getElementById('floatingParticles');
-        if (!container) {return;}
+        if (!container) {
+            return;
+        }
 
         const particleCount = 30;
 
@@ -231,8 +249,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Start at different animation points
-            const animationDuration = particle.classList.contains('slow') ? 30 :
-                particle.classList.contains('fast') ? 15 : 20;
+            const animationDuration = particle.classList.contains('slow')
+                ? 30
+                : particle.classList.contains('fast')
+                  ? 15
+                  : 20;
             const randomOffset = Math.random() * animationDuration;
             particle.style.animationDelay = `-${randomOffset}s`;
 
@@ -253,14 +274,24 @@ document.addEventListener('DOMContentLoaded', function() {
         resizeTimeout = setTimeout(() => {
             // Clear and reinitialize patterns
             const movingCircles = document.getElementById('movingCircles');
-            const particlesContainer = document.getElementById('particlesContainer');
+            const particlesContainer =
+                document.getElementById('particlesContainer');
             const flowField = document.getElementById('flowField');
-            const floatingParticles = document.getElementById('floatingParticles');
+            const floatingParticles =
+                document.getElementById('floatingParticles');
 
-            if (movingCircles) {movingCircles.innerHTML = '';}
-            if (particlesContainer) {particlesContainer.innerHTML = '';}
-            if (flowField) {flowField.innerHTML = '';}
-            if (floatingParticles) {floatingParticles.innerHTML = '';}
+            if (movingCircles) {
+                movingCircles.innerHTML = '';
+            }
+            if (particlesContainer) {
+                particlesContainer.innerHTML = '';
+            }
+            if (flowField) {
+                flowField.innerHTML = '';
+            }
+            if (floatingParticles) {
+                floatingParticles.innerHTML = '';
+            }
 
             initMovingCircles();
             initInteractiveParticles();

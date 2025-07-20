@@ -27,8 +27,12 @@
 }
 
 @keyframes wave-motion {
-    0% { background-position-x: 0; }
-    100% { background-position-x: 400px; }
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 400px;
+    }
 }
 
 .pattern-dots {
@@ -43,11 +47,18 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(circle, #F27252 2px, transparent 2px),
-                      radial-gradient(circle, #621039 2px, transparent 2px),
-                      radial-gradient(circle, #2CBBAF 2px, transparent 2px);
-    background-size: 40px 40px, 40px 40px, 40px 40px;
-    background-position: 0 0, 13px 13px, 26px 26px;
+    background-image:
+        radial-gradient(circle, #f27252 2px, transparent 2px),
+        radial-gradient(circle, #621039 2px, transparent 2px),
+        radial-gradient(circle, #2cbbaf 2px, transparent 2px);
+    background-size:
+        40px 40px,
+        40px 40px,
+        40px 40px;
+    background-position:
+        0 0,
+        13px 13px,
+        26px 26px;
     opacity: 0.6;
 }
 
@@ -66,7 +77,8 @@
 }
 
 @keyframes float-circle {
-    0%, 100% {
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
     25% {
@@ -183,7 +195,8 @@
 
 /* Loading Animation */
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 0.8;
     }
     50% {
@@ -276,7 +289,8 @@
 
 /* Bounce Animation */
 @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -286,13 +300,21 @@
 
 /* Shake Animation */
 @keyframes shake {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
         transform: translateX(-5px);
     }
-    20%, 40%, 60%, 80% {
+    20%,
+    40%,
+    60%,
+    80% {
         transform: translateX(5px);
     }
 }

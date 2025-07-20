@@ -1,8 +1,10 @@
 // Icons loader for ITM Style Guide
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const iconGrid = document.getElementById('iconGrid');
-    if (!iconGrid) {return;}
+    if (!iconGrid) {
+        return;
+    }
 
     // Icon categories
     const iconCategories = {
@@ -298,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
         iconItem.appendChild(iconName);
 
         // Copy to clipboard functionality
-        iconItem.addEventListener('click', function() {
+        iconItem.addEventListener('click', function () {
             navigator.clipboard.writeText(icon.svg).then(() => {
                 // Visual feedback
                 iconItem.classList.add('copied');
@@ -337,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.style.position = 'relative';
         element.appendChild(tooltip);
 
-        setTimeout(() => tooltip.style.opacity = '1', 10);
+        setTimeout(() => (tooltip.style.opacity = '1'), 10);
 
         setTimeout(() => {
             tooltip.style.opacity = '0';

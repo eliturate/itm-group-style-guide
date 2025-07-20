@@ -1,6 +1,6 @@
 // Main application file for ITM Style Guide
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize the style guide
     initStyleGuide();
 
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const colorSwatches = document.querySelectorAll('.color-swatch');
     colorSwatches.forEach(swatch => {
         swatch.style.cursor = 'pointer';
-        swatch.addEventListener('click', function() {
+        swatch.addEventListener('click', function () {
             const hex = this.parentElement.querySelector('code').textContent;
 
             copyToClipboard(hex, `Copied ${hex} to clipboard`);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const codeBlocks = document.querySelectorAll('code');
     codeBlocks.forEach(code => {
         code.style.cursor = 'pointer';
-        code.addEventListener('click', function() {
+        code.addEventListener('click', function () {
             const text = this.textContent;
             copyToClipboard(text, 'Copied to clipboard');
         });
@@ -114,25 +114,33 @@ document.addEventListener('DOMContentLoaded', function() {
         function getLuminance(r, g, b) {
             const [rs, gs, bs] = [r, g, b].map(c => {
                 c = c / 255;
-                return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+                return c <= 0.03928
+                    ? c / 12.92
+                    : Math.pow((c + 0.055) / 1.055, 2.4);
             });
             return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
         }
 
         function hexToRgb(hex) {
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? {
-                r: parseInt(result[1], 16),
-                g: parseInt(result[2], 16),
-                b: parseInt(result[3], 16)
-            } : null;
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
+                hex
+            );
+            return result
+                ? {
+                      r: parseInt(result[1], 16),
+                      g: parseInt(result[2], 16),
+                      b: parseInt(result[3], 16)
+                  }
+                : null;
         }
 
         const results = colorPairs.map(pair => {
             const bgRgb = hexToRgb(pair.bg);
             const fgRgb = hexToRgb(pair.fg);
 
-            if (!bgRgb || !fgRgb) {return { name: pair.name, valid: false, ratio: 0 };}
+            if (!bgRgb || !fgRgb) {
+                return { name: pair.name, valid: false, ratio: 0 };
+            }
 
             const bgLuminance = getLuminance(bgRgb.r, bgRgb.g, bgRgb.b);
             const fgLuminance = getLuminance(fgRgb.r, fgRgb.g, fgRgb.b);
@@ -146,7 +154,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Log results only in development
-        if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+        if (
+            typeof process !== 'undefined' &&
+            process.env.NODE_ENV === 'development'
+        ) {
             console.group('Color Contrast Validation');
             results.forEach(result => {
                 const status = result.valid ? '✅' : '❌';
@@ -188,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Export functionality
-    window.exportStyleGuide = function() {
+    window.exportStyleGuide = function () {
         const styles = {
             colors: {
                 primary: '#F27252',
@@ -204,7 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 purpleCard: 'linear-gradient(135deg, #B44074 0%, #621039 100%)'
             },
             typography: {
-                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+                fontFamily:
+                    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
                 scale: {
                     h1: 'clamp(2rem, 4vw, 3rem)',
                     h2: 'clamp(1.75rem, 3vw, 2.5rem)',
@@ -224,7 +236,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        const blob = new Blob([JSON.stringify(styles, null, 2)], { type: 'application/json' });
+        const blob = new Blob([JSON.stringify(styles, null, 2)], {
+            type: 'application/json'
+        });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -242,7 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the style guide
     function initStyleGuide() {
         // Log initialization only in development
-        if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+        if (
+            typeof process !== 'undefined' &&
+            process.env.NODE_ENV === 'development'
+        ) {
             console.log('ITM Style Guide loaded successfully');
         }
 
@@ -257,9 +274,16 @@ document.addEventListener('DOMContentLoaded', function() {
     async function registerServiceWorker() {
         if ('serviceWorker' in navigator) {
             try {
-                const registration = await navigator.serviceWorker.register('/sw.js');
-                if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-                    console.log('Service Worker registered successfully:', registration);
+                const registration =
+                    await navigator.serviceWorker.register('/sw.js');
+                if (
+                    typeof process !== 'undefined' &&
+                    process.env.NODE_ENV === 'development'
+                ) {
+                    console.log(
+                        'Service Worker registered successfully:',
+                        registration
+                    );
                 }
             } catch (error) {
                 console.error('Service Worker registration failed:', error);
@@ -269,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Performance monitoring
     if ('PerformanceObserver' in window) {
-        const perfObserver = new PerformanceObserver((list) => {
+        const perfObserver = new PerformanceObserver(list => {
             for (const entry of list.getEntries()) {
                 // Log performance metrics only in development
                 if (process.env.NODE_ENV === 'development') {
@@ -277,7 +301,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        perfObserver.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+        perfObserver.observe({
+            entryTypes: ['paint', 'largest-contentful-paint']
+        });
     }
 
     // Accessibility improvements
@@ -286,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
             element.setAttribute('tabindex', '0');
         }
 
-        element.addEventListener('keydown', (e) => {
+        element.addEventListener('keydown', e => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 element.click();

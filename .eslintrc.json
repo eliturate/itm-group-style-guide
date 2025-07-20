@@ -21,7 +21,7 @@
     "curly": "error",
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
-    "indent": ["error", 4],
+    "indent": "off",
     "comma-dangle": ["error", "never"],
     "no-trailing-spaces": "error",
     "eol-last": "error"

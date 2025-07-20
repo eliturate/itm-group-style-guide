@@ -11,7 +11,12 @@
     "lint:fix": "eslint src/**/*.js --fix",
     "format": "prettier --write src/**/*.{js,css,html}",
     "check-format": "prettier --check src/**/*.{js,css,html}",
-    "validate": "npm run lint && npm run check-format"
+    "validate": "npm run lint && npm run check-format",
+    "build": "npm run validate && npm run copy-files",
+    "copy-files": "mkdir -p dist && cp -r index.html manifest.json sw.js src dist/ && cp -r .gitignore dist/",
+    "deploy:github": "npm run build && echo 'Ready for GitHub Pages deployment'",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir=dist",
+    "deploy:vercel": "npm run build && vercel --prod"
   },
   "keywords": [
     "style-guide",

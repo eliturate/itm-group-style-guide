@@ -1,12 +1,12 @@
 // Navigation functionality for ITM Style Guide
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.style-guide-section');
 
     // Handle navigation clicks
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
 
             try {
@@ -23,14 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetSection) {
                     targetSection.classList.add('active');
                 } else {
-                    console.warn(`Navigation target section not found: ${targetId}`);
+                    console.warn(
+                        `Navigation target section not found: ${targetId}`
+                    );
                 }
 
                 // Update URL hash
                 window.location.hash = targetId;
-                
+
                 // Ensure only one active link
-                const activeLinks = document.querySelectorAll('.nav-link.active');
+                const activeLinks =
+                    document.querySelectorAll('.nav-link.active');
                 if (activeLinks.length > 1) {
                     // Remove active class from all except the clicked one
                     activeLinks.forEach(link => {
@@ -39,11 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     });
                 }
-                
+
                 // Debug: Log active states
-                if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-                    const finalActiveLinks = document.querySelectorAll('.nav-link.active');
-                    console.log(`Active navigation links: ${finalActiveLinks.length}`);
+                if (
+                    typeof process !== 'undefined' &&
+                    process.env.NODE_ENV === 'development'
+                ) {
+                    const finalActiveLinks =
+                        document.querySelectorAll('.nav-link.active');
+                    console.log(
+                        `Active navigation links: ${finalActiveLinks.length}`
+                    );
                 }
             } catch (error) {
                 console.error('Navigation error:', error);
@@ -55,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleHash() {
         const hash = window.location.hash.substring(1);
         if (hash) {
-            const targetLink = document.querySelector(`.nav-link[href="#${hash}"]`);
+            const targetLink = document.querySelector(
+                `.nav-link[href="#${hash}"]`
+            );
             if (targetLink) {
                 targetLink.click();
             }
@@ -91,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const nav = document.querySelector('.style-guide-nav');
 
-    mobileMenuToggle.addEventListener('click', function() {
+    mobileMenuToggle.addEventListener('click', function () {
         nav.classList.toggle('open');
         this.innerHTML = nav.classList.contains('open') ? '✕' : '☰';
     });
@@ -112,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function() {
+        anchor.addEventListener('click', function () {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({
