@@ -1,0 +1,26 @@
+{
+  "name": "ITM Group Brand Style Guide",
+  "short_name": "ITM Style Guide",
+  "description": "Official brand style guide for ITM Group",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEEEE7",
+  "theme_color": "#F27252",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "src/assets/images/logos/itm-globe-default.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "src/assets/images/logos/itm-globe-default.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["design", "productivity"],
+  "lang": "en"
+}

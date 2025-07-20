@@ -6,7 +6,12 @@
   "scripts": {
     "start": "npx http-server -p 8080 -o",
     "serve": "python -m http.server 8080",
-    "serve-php": "php -S localhost:8080"
+    "serve-php": "php -S localhost:8080",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write src/**/*.{js,css,html}",
+    "check-format": "prettier --check src/**/*.{js,css,html}",
+    "validate": "npm run lint && npm run check-format"
   },
   "keywords": [
     "style-guide",
@@ -19,5 +24,12 @@
   "author": "ITM Group",
   "license": "UNLICENSED",
   "private": true,
-  "homepage": "https://github.com/[your-username]/itm-group-style-guide"
+  "homepage": "https://github.com/[your-username]/itm-group-style-guide",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }

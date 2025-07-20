@@ -2,8 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const iconGrid = document.getElementById('iconGrid');
-    if (!iconGrid) return;
-    
+    if (!iconGrid) {return;}
+
     // Icon categories
     const iconCategories = {
         service: {
@@ -247,33 +247,33 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         }
     };
-    
+
     // Clear existing content
     iconGrid.innerHTML = '';
-    
+
     // Create sections for each category
     Object.entries(iconCategories).forEach(([key, category]) => {
         const section = document.createElement('div');
         section.className = 'icon-category';
         section.innerHTML = `<h3>${category.title}</h3>`;
-        
+
         const grid = document.createElement('div');
         grid.className = 'icon-grid';
-        
+
         category.icons.forEach(icon => {
             const iconItem = createIconItem(icon, key);
             grid.appendChild(iconItem);
         });
-        
+
         section.appendChild(grid);
         iconGrid.appendChild(section);
     });
-    
+
     // Function to create icon item
     function createIconItem(icon, category) {
         const iconItem = document.createElement('div');
         iconItem.className = 'icon-item';
-        
+
         // Apply specific styling based on category or icon style
         const style = icon.style || iconCategories[category].style;
         if (style === 'circle') {
@@ -281,37 +281,37 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (style === 'square') {
             iconItem.classList.add('icon-square');
         }
-        
+
         // Apply white background for white background category
         if (iconCategories[category].whiteBackground) {
             iconItem.classList.add('icon-white-bg');
         }
-        
+
         const iconWrapper = document.createElement('div');
         iconWrapper.className = 'icon-wrapper';
         iconWrapper.innerHTML = icon.svg;
-        
+
         const iconName = document.createElement('span');
         iconName.textContent = icon.name;
-        
+
         iconItem.appendChild(iconWrapper);
         iconItem.appendChild(iconName);
-        
+
         // Copy to clipboard functionality
         iconItem.addEventListener('click', function() {
             navigator.clipboard.writeText(icon.svg).then(() => {
                 // Visual feedback
                 iconItem.classList.add('copied');
                 setTimeout(() => iconItem.classList.remove('copied'), 200);
-                
+
                 // Show tooltip
                 showTooltip(iconItem, 'Copied!');
             });
         });
-        
+
         return iconItem;
     }
-    
+
     // Tooltip function
     function showTooltip(element, text) {
         const tooltip = document.createElement('div');
@@ -333,12 +333,12 @@ document.addEventListener('DOMContentLoaded', function() {
             transition: opacity 0.2s;
             z-index: 1000;
         `;
-        
+
         element.style.position = 'relative';
         element.appendChild(tooltip);
-        
+
         setTimeout(() => tooltip.style.opacity = '1', 10);
-        
+
         setTimeout(() => {
             tooltip.style.opacity = '0';
             setTimeout(() => tooltip.remove(), 200);

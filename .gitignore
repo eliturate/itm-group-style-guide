@@ -25,6 +25,10 @@ node_modules/
 package-lock.json
 yarn.lock
 
+# Development tools
+.eslintcache
+.prettierignore
+
 # Environment files
 .env
 .env.local
