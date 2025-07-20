@@ -42,27 +42,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Scroll Animation Observers
-    const scrollElements = document.querySelectorAll('.scroll-fade .effect-box, .scroll-slide .effect-box, .scroll-parallax .effect-box');
+    const fadeElements = document.querySelectorAll('.scroll-fade .effect-box');
+    const slideElements = document.querySelectorAll('.scroll-slide .effect-box');
+    const parallaxElements = document.querySelectorAll('.scroll-parallax .effect-box');
     
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
     };
     
-    const scrollObserver = new IntersectionObserver((entries) => {
+    // Fade In Animation
+    const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in-visible');
+                fadeObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    scrollElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease';
-        scrollObserver.observe(el);
+    fadeElements.forEach(el => {
+        el.classList.add('fade-in-element');
+        fadeObserver.observe(el);
+    });
+    
+    // Slide Up Animation
+    const slideObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-up-visible');
+                slideObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    slideElements.forEach(el => {
+        el.classList.add('slide-up-element');
+        slideObserver.observe(el);
+    });
+    
+    // Parallax Animation
+    const parallaxObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const scrollHandler = () => {
+                    const rect = entry.target.getBoundingClientRect();
+                    const speed = 0.5;
+                    const yPos = rect.top * speed;
+                    entry.target.style.transform = `translateY(${yPos}px)`;
+                };
+                
+                window.addEventListener('scroll', scrollHandler);
+                scrollHandler();
+                
+                // Store handler for cleanup if needed
+                entry.target._scrollHandler = scrollHandler;
+            }
+        });
+    }, { threshold: 0 });
+    
+    parallaxElements.forEach(el => {
+        parallaxObserver.observe(el);
     });
     
     // Carousel Navigation

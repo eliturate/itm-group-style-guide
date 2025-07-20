@@ -972,7 +972,28 @@
     transition: transform 0.1s ease-out;
 }
 
-/* Remove Shape Morph - not needed */
+/* Scroll Animation Classes */
+.fade-in-element {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.fade-in-visible {
+    opacity: 1;
+}
+
+.slide-up-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Parallax element doesn't need initial styles as it's continuously animated */
 
 /* Spacing & Layout */
 .spacing-group {
