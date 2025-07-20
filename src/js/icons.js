@@ -4,143 +4,237 @@ document.addEventListener('DOMContentLoaded', function() {
     const iconGrid = document.getElementById('iconGrid');
     if (!iconGrid) return;
     
-    // SVG icon definitions
-    const icons = [
-        {
-            name: 'Strategy',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-            </svg>`
+    // Icon categories
+    const iconCategories = {
+        service: {
+            title: 'Service Icons',
+            style: 'circle',
+            icons: [
+                {
+                    name: 'Strategic Vision',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14m0-14l-2 2m2-2l2 2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Tailored Solutions',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="2"/>
+                        <path d="M12 6V4m0 16v-2m6-6h2M4 12h2m11.314-5.314l1.414-1.414M6.686 18.728l1.414-1.414m10.628 1.414l-1.414-1.414M7.272 6.686L5.858 5.272"/>
+                    </svg>`
+                },
+                {
+                    name: 'Proven Results',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Continuous Growth',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 12c0-3.314 2.686-6 6-6M12 12c0 3.314-2.686 6-6 6m6-6c0 3.314 2.686 6 6 6m-6-6c0-3.314-2.686-6-6-6" stroke-linecap="round"/>
+                    </svg>`
+                }
+            ]
         },
-        {
-            name: 'Analytics',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>`
+        feature: {
+            title: 'Feature Icons',
+            style: 'square',
+            icons: [
+                {
+                    name: 'Quality Assurance',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 12l2 2 4-4m1 7H8a2 2 0 01-2-2V9a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Innovation',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Analytics',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 19v-6m3 6V9m3 10v-4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Time Efficiency',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                }
+            ]
         },
-        {
-            name: 'Growth',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-            </svg>`
+        utility: {
+            title: 'Utility Icons',
+            style: 'square',
+            icons: [
+                {
+                    name: 'Arrow Right',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Plus',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14m-7-7h14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Close',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 6l12 12M6 18L18 6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Search',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                }
+            ]
         },
-        {
-            name: 'Innovation',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-            </svg>`
-        },
-        {
-            name: 'Team',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>`
-        },
-        {
-            name: 'Security',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-            </svg>`
-        },
-        {
-            name: 'Cloud',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-            </svg>`
-        },
-        {
-            name: 'Data',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
-            </svg>`
-        },
-        {
-            name: 'Integration',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>`
-        },
-        {
-            name: 'Automation',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>`
-        },
-        {
-            name: 'Performance',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>`
-        },
-        {
-            name: 'Optimization',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-            </svg>`
-        },
-        {
-            name: 'Insights',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-            </svg>`
-        },
-        {
-            name: 'Support',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>`
-        },
-        {
-            name: 'Partnership',
-            svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>`
+        additional: {
+            title: 'Additional Brand Icons',
+            style: 'mixed',
+            icons: [
+                {
+                    name: 'Compass',
+                    style: 'circle',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 12h8m-4-4v8" stroke-linecap="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Shield Check',
+                    style: 'circle',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5z"/>
+                        <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: '3D Cube',
+                    style: 'circle',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/>
+                        <path d="M12 7v10m0-10L2 7m10 0l10-5M12 17L2 12m10 5l10-5"/>
+                    </svg>`
+                },
+                {
+                    name: 'Network',
+                    style: 'circle',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <circle cx="12" cy="4" r="2"/>
+                        <circle cx="20" cy="12" r="2"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <circle cx="4" cy="12" r="2"/>
+                        <path d="M12 6v3m5.2 1.8l-2.6-1.5M15 12h3M12 15v3m-5.2-1.8l2.6-1.5M6 12h3"/>
+                    </svg>`
+                },
+                {
+                    name: 'Grid System',
+                    style: 'circle',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>`
+                },
+                {
+                    name: 'Globe Grid',
+                    style: 'square',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M3 12h18M12 3v18"/>
+                        <ellipse cx="12" cy="12" rx="9" ry="4"/>
+                        <ellipse cx="12" cy="12" rx="4" ry="9"/>
+                    </svg>`
+                },
+                {
+                    name: 'Layers',
+                    style: 'square',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5L12 2z"/>
+                        <path d="M2 12l10 5 10-5M2 17l10 5 10-5"/>
+                    </svg>`
+                },
+                {
+                    name: 'Sparkle',
+                    style: 'square',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2v6m0 4v6m-4-8h6M6 12h6m5-7l-3 3m3 3l-3-3m3 9l-3-3m3-3l-3 3M7 5L4 8m3-3L4 8m3 9l-3 3m3-3l-3 3m13-3l3 3m-3-3l3 3"/>
+                    </svg>`
+                },
+                {
+                    name: 'Pulse',
+                    style: 'square',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12h4l3-9 4 18 3-9h4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Framework',
+                    style: 'square',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="4" y="4" width="16" height="16"/>
+                        <path d="M9 4v16M15 4v16M4 9h16M4 15h16"/>
+                    </svg>`
+                }
+            ]
         }
-    ];
+    };
     
-    // Create white background icons section
-    const whiteBackgroundIcons = icons.slice(10, 15); // Last 5 icons
-    const regularIcons = icons.slice(0, 10); // First 10 icons
+    // Clear existing content
+    iconGrid.innerHTML = '';
     
-    // Add regular icons
-    const regularSection = document.createElement('div');
-    regularSection.className = 'icon-section';
-    regularSection.innerHTML = '<h3 style="grid-column: 1/-1; margin-bottom: 1rem;">Core Brand Icons</h3>';
-    
-    regularIcons.forEach(icon => {
-        const iconItem = createIconItem(icon, '#F27252');
-        regularSection.appendChild(iconItem);
+    // Create sections for each category
+    Object.entries(iconCategories).forEach(([key, category]) => {
+        const section = document.createElement('div');
+        section.className = 'icon-category';
+        section.innerHTML = `<h3>${category.title}</h3>`;
+        
+        const grid = document.createElement('div');
+        grid.className = 'icon-grid';
+        
+        category.icons.forEach(icon => {
+            const iconItem = createIconItem(icon, key);
+            grid.appendChild(iconItem);
+        });
+        
+        section.appendChild(grid);
+        iconGrid.appendChild(section);
     });
-    
-    iconGrid.appendChild(regularSection);
-    
-    // Add white background icons
-    const whiteSection = document.createElement('div');
-    whiteSection.className = 'icon-section';
-    whiteSection.innerHTML = '<h3 style="grid-column: 1/-1; margin-top: 2rem; margin-bottom: 1rem;">Additional Brand Icons</h3>';
-    whiteSection.style.marginTop = '2rem';
-    
-    whiteBackgroundIcons.forEach(icon => {
-        const iconItem = createIconItem(icon, '#621039', true);
-        whiteSection.appendChild(iconItem);
-    });
-    
-    iconGrid.appendChild(whiteSection);
     
     // Function to create icon item
-    function createIconItem(icon, color, whiteBackground = false) {
+    function createIconItem(icon, category) {
         const iconItem = document.createElement('div');
         iconItem.className = 'icon-item';
-        if (whiteBackground) {
-            iconItem.style.background = '#ffffff';
-            iconItem.style.border = '1px solid #e0e0e0';
+        
+        // Apply specific styling based on category or icon style
+        const style = icon.style || iconCategories[category].style;
+        if (style === 'circle') {
+            iconItem.classList.add('icon-circle');
+        } else if (style === 'square') {
+            iconItem.classList.add('icon-square');
+        }
+        
+        // Apply white background for specific icons
+        if (category === 'additional' && ['Globe Grid', 'Layers', 'Sparkle', 'Pulse', 'Framework'].includes(icon.name)) {
+            iconItem.classList.add('icon-white-bg');
         }
         
         const iconWrapper = document.createElement('div');
+        iconWrapper.className = 'icon-wrapper';
         iconWrapper.innerHTML = icon.svg;
-        iconWrapper.style.color = color;
         
         const iconName = document.createElement('span');
         iconName.textContent = icon.name;
@@ -152,18 +246,8 @@ document.addEventListener('DOMContentLoaded', function() {
         iconItem.addEventListener('click', function() {
             navigator.clipboard.writeText(icon.svg).then(() => {
                 // Visual feedback
-                const originalBg = iconItem.style.background;
-                iconItem.style.background = 'var(--color-primary)';
-                iconItem.style.color = 'white';
-                iconWrapper.style.color = 'white';
-                iconName.style.color = 'white';
-                
-                setTimeout(() => {
-                    iconItem.style.background = originalBg;
-                    iconItem.style.color = '';
-                    iconWrapper.style.color = color;
-                    iconName.style.color = '';
-                }, 200);
+                iconItem.classList.add('copied');
+                setTimeout(() => iconItem.classList.remove('copied'), 200);
                 
                 // Show tooltip
                 showTooltip(iconItem, 'Copied!');
@@ -192,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.2s;
+            z-index: 1000;
         `;
         
         element.style.position = 'relative';
