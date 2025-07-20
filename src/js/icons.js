@@ -187,6 +187,54 @@ document.addEventListener('DOMContentLoaded', function() {
                     </svg>`
                 }
             ]
+        },
+        navigation: {
+            title: 'Navigation Icons',
+            style: 'square',
+            icons: [
+                {
+                    name: 'Menu',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Arrow Left',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Arrow Down',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 9l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Arrow Up',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 15l-7-7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'External Link',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Download',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                },
+                {
+                    name: 'Upload',
+                    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m12-5l-5-5-5 5m5-5v12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+                }
+            ]
         }
     };
     
