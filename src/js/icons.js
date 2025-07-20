@@ -101,11 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         additional: {
             title: 'Additional Brand Icons',
-            style: 'mixed',
+            style: 'circle',
             icons: [
                 {
                     name: 'Compass',
-                    style: 'circle',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M8 12h8m-4-4v8" stroke-linecap="round"/>
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: 'Shield Check',
-                    style: 'circle',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5z"/>
                         <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -121,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: '3D Cube',
-                    style: 'circle',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/>
                         <path d="M12 7v10m0-10L2 7m10 0l10-5M12 17L2 12m10 5l10-5"/>
@@ -129,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: 'Network',
-                    style: 'circle',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="12" cy="12" r="3"/>
                         <circle cx="12" cy="4" r="2"/>
@@ -141,17 +137,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: 'Grid System',
-                    style: 'circle',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="3" y="3" width="7" height="7"/>
                         <rect x="14" y="3" width="7" height="7"/>
                         <rect x="14" y="14" width="7" height="7"/>
                         <rect x="3" y="14" width="7" height="7"/>
                     </svg>`
-                },
+                }
+            ]
+        },
+        whiteBg: {
+            title: 'White Background Icons',
+            style: 'square',
+            whiteBackground: true,
+            icons: [
                 {
                     name: 'Globe Grid',
-                    style: 'square',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="12" cy="12" r="9"/>
                         <path d="M3 12h18M12 3v18"/>
@@ -161,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: 'Layers',
-                    style: 'square',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2L2 7l10 5 10-5L12 2z"/>
                         <path d="M2 12l10 5 10-5M2 17l10 5 10-5"/>
@@ -169,21 +169,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     name: 'Sparkle',
-                    style: 'square',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2v6m0 4v6m-4-8h6M6 12h6m5-7l-3 3m3 3l-3-3m3 9l-3-3m3-3l-3 3M7 5L4 8m3-3L4 8m3 9l-3 3m3-3l-3 3m13-3l3 3m-3-3l3 3"/>
                     </svg>`
                 },
                 {
                     name: 'Pulse',
-                    style: 'square',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M3 12h4l3-9 4 18 3-9h4" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>`
                 },
                 {
                     name: 'Framework',
-                    style: 'square',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="4" y="4" width="16" height="16"/>
                         <path d="M9 4v16M15 4v16M4 9h16M4 15h16"/>
@@ -227,8 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
             iconItem.classList.add('icon-square');
         }
         
-        // Apply white background for specific icons
-        if (category === 'additional' && ['Globe Grid', 'Layers', 'Sparkle', 'Pulse', 'Framework'].includes(icon.name)) {
+        // Apply white background for white background category
+        if (iconCategories[category].whiteBackground) {
             iconItem.classList.add('icon-white-bg');
         }
         

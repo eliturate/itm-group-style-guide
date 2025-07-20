@@ -635,18 +635,39 @@
 .icon-item.icon-white-bg .icon-wrapper {
     background: var(--color-white);
     box-shadow: var(--shadow-sm);
+    border: 1px solid #e0e0e0;
 }
 
-.icon-item:hover {
+.icon-item.icon-white-bg svg {
+    color: var(--color-secondary);
+}
+
+/* Hover effects for non-white background icons */
+.icon-item:not(.icon-white-bg):hover {
     transform: translateY(-5px);
 }
 
-.icon-item:hover .icon-wrapper {
-    box-shadow: var(--shadow-md);
+.icon-item:not(.icon-white-bg):hover .icon-wrapper {
     background: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
-.icon-item:hover svg {
+.icon-item:not(.icon-white-bg):hover svg {
+    color: var(--color-white);
+}
+
+/* Hover effects for white background icons */
+.icon-item.icon-white-bg:hover {
+    transform: translateY(-5px);
+}
+
+.icon-item.icon-white-bg:hover .icon-wrapper {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.icon-item.icon-white-bg:hover svg {
     color: var(--color-white);
 }
 
