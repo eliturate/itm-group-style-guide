@@ -192,10 +192,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Floating Particles Pattern
+    function initFloatingParticles() {
+        const container = document.getElementById('floatingParticles');
+        if (!container) return;
+        
+        const particleCount = 30;
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            
+            // Random size
+            const sizeRandom = Math.random();
+            if (sizeRandom < 0.3) {
+                particle.classList.add('small');
+            } else if (sizeRandom > 0.7) {
+                particle.classList.add('large');
+            } else {
+                particle.classList.add('medium');
+            }
+            
+            // Random speed
+            const speedRandom = Math.random();
+            if (speedRandom < 0.3) {
+                particle.classList.add('slow');
+            } else if (speedRandom > 0.7) {
+                particle.classList.add('fast');
+            }
+            
+            // Random position
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // Random color (some secondary)
+            if (Math.random() > 0.7) {
+                particle.classList.add('secondary');
+            }
+            
+            // Start at different animation points
+            const animationDuration = particle.classList.contains('slow') ? 30 : 
+                                    particle.classList.contains('fast') ? 15 : 20;
+            const randomOffset = Math.random() * animationDuration;
+            particle.style.animationDelay = `-${randomOffset}s`;
+            
+            container.appendChild(particle);
+        }
+    }
+    
     // Initialize all patterns
     initMovingCircles();
     initInteractiveParticles();
     initFlowField();
+    initFloatingParticles();
     
     // Reinitialize on window resize
     let resizeTimeout;
@@ -206,14 +255,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const movingCircles = document.getElementById('movingCircles');
             const particlesContainer = document.getElementById('particlesContainer');
             const flowField = document.getElementById('flowField');
+            const floatingParticles = document.getElementById('floatingParticles');
             
             if (movingCircles) movingCircles.innerHTML = '';
             if (particlesContainer) particlesContainer.innerHTML = '';
             if (flowField) flowField.innerHTML = '';
+            if (floatingParticles) floatingParticles.innerHTML = '';
             
             initMovingCircles();
             initInteractiveParticles();
             initFlowField();
+            initFloatingParticles();
         }, 250);
     });
 });

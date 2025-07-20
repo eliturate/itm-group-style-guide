@@ -174,9 +174,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     </svg>`
                 },
                 {
-                    name: 'Pulse',
+                    name: 'Floating Particles',
                     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M3 12h4l3-9 4 18 3-9h4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="5" r="1.5"/>
+                        <circle cx="6" cy="8" r="1"/>
+                        <circle cx="18" cy="9" r="1"/>
+                        <circle cx="9" cy="12" r="1.5"/>
+                        <circle cx="15" cy="14" r="1"/>
+                        <circle cx="5" cy="16" r="1"/>
+                        <circle cx="12" cy="18" r="1.5"/>
+                        <circle cx="19" cy="19" r="1"/>
+                        <path d="M12 5v2m0 4v2m0 3v2" stroke-dasharray="1 2" opacity="0.3"/>
+                        <path d="M6 8v3m0 2v3" stroke-dasharray="1 2" opacity="0.3"/>
+                        <path d="M18 9v2m0 2v4" stroke-dasharray="1 2" opacity="0.3"/>
                     </svg>`
                 },
                 {

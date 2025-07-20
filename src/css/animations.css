@@ -120,6 +120,61 @@
     opacity: 0.4;
 }
 
+/* Floating Particles Pattern */
+.pattern-floating-particles {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.3;
+    animation: float-up 20s infinite linear;
+    will-change: transform;
+}
+
+.floating-particle.small {
+    width: 2px;
+    height: 2px;
+    opacity: 0.2;
+}
+
+.floating-particle.medium {
+    width: 4px;
+    height: 4px;
+}
+
+.floating-particle.large {
+    width: 6px;
+    height: 6px;
+    opacity: 0.4;
+}
+
+.floating-particle.slow {
+    animation-duration: 30s;
+}
+
+.floating-particle.fast {
+    animation-duration: 15s;
+}
+
+.floating-particle.secondary {
+    background: var(--color-secondary);
+    opacity: 0.2;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100%) translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+    }
+}
+
 /* Hover Effects */
 .pattern-preview:hover {
     transform: scale(1.05);
